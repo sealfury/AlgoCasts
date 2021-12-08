@@ -8,7 +8,7 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-function anagrams(stringA, stringB) {
+function anagramsOne(stringA, stringB) {
   const aMap = buildCharMap(stringA)
   const bMap = buildCharMap(stringB)
 
@@ -35,4 +35,15 @@ const buildCharMap = str => {
   return charMap
 }
 
-module.exports = anagrams
+// More straightforward solution
+const anagramsTwo = (stringA, stringB) => {
+  return cleanString(stringA) === cleanString(stringB)
+}
+
+const cleanString = str => {
+  // replace using regex (to lowercase), convert to array, sort, join back to string
+  return str.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('')
+}
+
+module.exports = anagramsOne
+module.exports = anagramsTwo
