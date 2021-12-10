@@ -7,6 +7,33 @@
 //   capitalize('a lazy fox') --> 'A Lazy Fox'
 //   capitalize('look, it is working!') --> 'Look, It Is Working!'
 
-function capitalize(str) {}
+// advanced js solution
+function capitalize(str) {
+  const words = []
 
-module.exports = capitalize;
+  for (let word of str.split(' ')) {
+    words.push(word[0].toUpperCase() + word.slice(1))
+  }
+
+  return words.join(' ')
+}
+
+// create 'result' which is first char of input string capitalized
+// for each character in string, if character to left of space capitalize it
+// and att it to 'result' else add it to 'result'
+const capitalizeToo = str => {
+  let result = str[0].toUpperCase()
+
+  for (let i = 1; i < str.length; i++) {
+    if (str[i - 1] === ' ') {
+      result += str[i].toUpperCase()
+    } else {
+      result += str[i]
+    }
+  }
+
+  return result
+}
+
+module.exports = capitalize
+module.exports = capitalizeToo
