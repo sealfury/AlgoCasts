@@ -62,13 +62,9 @@ const stepsRecursion = (n, row = 0, stair = '') => {
     return stepsRecursion(n, row + 1)
   }
 
-  if (stair.length <= row) {
-    stair += '#'
-  } else {
-    stair += ' '
-  }
+  const addedVal = stair.length <= row ? '#' : ' '
 
-  stepsRecursion(n, row, stair)
+  stepsRecursion(n, row, stair + addedVal)
 }
 
 module.exports = steps
