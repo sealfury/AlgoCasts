@@ -7,7 +7,7 @@
 //   vowels('Why do you ask?') --> 4
 //   vowels('Why?') --> 0
 
-// Iterative Solution
+// Iterative (more clear) Solution
 function vowels(str) {
   let count = 0
   // checker w/ .includes() can be expanded to check for more things
@@ -22,4 +22,13 @@ function vowels(str) {
   return count
 }
 
+const vowelsRegex = str => {
+  // regex to match chars in braces
+  // g = don't stop after first match, i = case insensitive
+  const matches = str.match(/[aeiou]/gi)
+
+  return matches ? matches.length : 0
+}
+
+module.exports = vowelsRegex
 module.exports = vowels
