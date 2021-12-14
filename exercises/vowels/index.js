@@ -7,6 +7,19 @@
 //   vowels('Why do you ask?') --> 4
 //   vowels('Why?') --> 0
 
-function vowels(str) {}
+// Iterative Solution
+function vowels(str) {
+  let count = 0
+  // checker w/ .includes() can be expanded to check for more things
+  const checker = ['a', 'e', 'i', 'o', 'u']
 
-module.exports = vowels;
+  for (let char of str.toLowerCase()) {
+    if (checker.includes(char)) {
+      count++
+    }
+  }
+
+  return count
+}
+
+module.exports = vowels
