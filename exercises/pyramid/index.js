@@ -16,7 +16,7 @@
 
 // Iterative
 function pyramid(n) {
-  // get midpoint column of pyramid
+  // get midpoint index of pyramid column
   const midpoint = Math.floor((2 * n - 1) / 2)
 
   for (let row = 0; row < n; row++) {
@@ -36,4 +36,29 @@ function pyramid(n) {
   }
 }
 
-module.exports = pyramid
+// Recursion
+const pyramidRec = (n, row = 0, level = '') => {
+  if (row === n) {
+    return
+  }
+
+  if (level.length === 2 * n - 1) {
+    console.log(level)
+    return pyramidRec(n, row + 1)
+  }
+
+  // get midpoint index of pyramid column
+  const midpoint = Math.floor((2 * n - 1) / 2)
+
+  let addChar
+  if (midpoint - row <= level.length && midpoint + row >= level.length) {
+    addChar = '#'
+  } else {
+    addChar = ' '
+  }
+
+  pyramidRec(n, row, level + addChar)
+}
+
+module.exports = pyramidRec
+// module.exports = pyramid
