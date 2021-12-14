@@ -14,6 +14,26 @@
 //       ' ### '
 //       '#####'
 
-function pyramid(n) {}
+// Iterative
+function pyramid(n) {
+  // get midpoint column of pyramid
+  const midpoint = Math.floor((2 * n - 1) / 2)
 
-module.exports = pyramid;
+  for (let row = 0; row < n; row++) {
+    let level = ''
+
+    // cols = 2n - 1 rows
+    for (let col = 0; col < 2 * n - 1; col++) {
+      // check we're inside of a certain bracket of nrs
+      if (midpoint - row <= col && midpoint + row >= col) {
+        level += '#'
+      } else {
+        level += ' '
+      }
+    }
+
+    console.log(level)
+  }
+}
+
+module.exports = pyramid
