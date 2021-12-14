@@ -43,4 +43,33 @@ function steps(n) {
   }
 }
 
+/* RECURSION SOLUTION *
+ *  If (row ===n) then we have hit the end of our problem
+ *  If the 'stair string has a length === n then we are at
+ *  the end of a row
+ *  If the length of the stair string is less than or equal to
+ *  the row number we're working on, we add a '#',
+ *  otherwise add a space
+ */
+const stepsRecursion = (n, row = 0, stair = '') => {
+  // define base case & check if it's satisfied
+  if (n === row) {
+    return
+  }
+
+  if (n === stair.length) {
+    console.log(stair)
+    return stepsRecursion(n, row + 1)
+  }
+
+  if (stair.length <= row) {
+    stair += '#'
+  } else {
+    stair += ' '
+  }
+
+  stepsRecursion(n, row, stair)
+}
+
 module.exports = steps
+module.exports = stepsRecursion
