@@ -10,5 +10,5 @@ SPIRAL MATRIX SOLTION 1
     - Loop from start row to end row
         -At results[i][end_column] assign counter variable
         -Increment counter
-    - Decrement end row
+    - Decrement end column
     - ...Repeat for other two sides
