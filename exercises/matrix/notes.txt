@@ -1,0 +1,14 @@
+SPIRAL MATRIX SOLTION 1
+
+* Create empy array of arrays called 'results'
+* Create a counter variable, starting at 1
+* As long as (start column <= end column) AND (start row <= end row):
+    - Loop from start column to end column
+        -At results[start_row][i] assign counter variable
+        -Increment counter
+    - Increment start row
+    - Loop from start row to end row
+        -At results[i][end_column] assign counter variable
+        -Increment counter
+    - Decrement end row
+    - ...Repeat for other two sides
