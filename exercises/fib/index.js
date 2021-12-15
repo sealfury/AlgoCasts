@@ -10,7 +10,7 @@
 
 // function fib(n) {}
 
-// Iterative - Linear runtime / O(n)
+// Iterative - Linear runtime / O(n) - better performance solution
 const fibIt = n => {
   const result = [0, 1]
 
@@ -26,4 +26,34 @@ const fibIt = n => {
   return result[n]
 }
 
-module.exports = fibIt
+// Recursion - Exponential time algorithm :(
+const fibRecSlow = n => {
+  // aassume the given [0, 1] of series
+  if (n < 2) {
+    return n
+  }
+
+  return fibRecSlow(n - 1) + fibRecSlow(n - 2)
+}
+
+// Recursion using Memoization to solve runtime issues
+const memoize = fn => {
+  const callsCache = {}
+
+  return (...args) => {
+    if (callsCache[args]) {
+      return callsCache[args]
+    }
+
+    const result = fn.apply(this, args)
+    callsCache[args] = result
+
+    return result
+  }
+}
+
+const fibRecFast = memoize(fibRecSlow)
+
+// module.exports = fibIt
+// module.exports = fibRecSlow
+module.exports = fibRecFast
