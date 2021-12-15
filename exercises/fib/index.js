@@ -8,6 +8,22 @@
 // Example:
 //   fib(4) === 3
 
-function fib(n) {}
+// function fib(n) {}
 
-module.exports = fib;
+// Iterative - Linear runtime / O(n)
+const fibIt = n => {
+  const result = [0, 1]
+
+  for (let i = 2; i <= n; i++) {
+    // OR replace 'i' with 'result.length'
+    const a = result[i - 1]
+    const b = result[i - 2]
+
+    result.push(a + b)
+  }
+
+  // OR replace 'n' with 'result.length - 1'
+  return result[n]
+}
+
+module.exports = fibIt
