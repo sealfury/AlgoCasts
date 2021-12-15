@@ -1,0 +1,65 @@
+* RUNTIME COMPLEXITY *
+  - Describes the performance of an algorithm
+  - How much more processing power/time is required to run the algorithm if we double the inputs?
+  
+  * TYPES OF RUNTIME*
+  ---------------------
+  - Constant (1) Runtime - 'Holy Grail' but harder to achieve: 
+    * No matter how many elements we're working with, the algorithm, operation, etc will always
+      take the same amount of time
+  
+  - Logarithmic (log(n)) Runtime:
+    * If doubling the number of elements being iterade over doesn't double the amount of work.
+      NB - always assume that [searching operations] are log(n)
+
+  - Linear (N) Runtime:
+    * Iterating through all elements in a collection of a data.  If you see a 'for' loop spanning from
+      '0' to 'array.length' you probably have 'n', or linear runtime
+
+  - Quasilinear (n * log(n)) Runtime:
+    * If doubling the elements of elements being iterated over doesn't double the amount of work (1 + a little bit)
+      NB - Always assume that any [sorting operation] is n * log(n)
+  
+  - Quadratic (N^2) Runtime:
+    * Every element in a collection has to be compared to every other element.
+      'The handshake problem' - with a room full of people, and each new person introduced to room must shake hands w/ everyone
+      and everyone in room must shake hands w/ everyone else 
+
+  - Exponential (2^N) Runtime:
+    * If you add a *single* element to a collection, the processing power required doubles
+    * Never use an algorithm that requires exponential runtime, try to refactor to a more efficient solution
+
+  ------------------------
+  * Big 'O' Notation *
+    - Common way of referring to runtime where 'O' is the runtime constant, as it were:
+        - O(n) = Linear
+        - O(1) = Constant
+        - O(n^2) = Quadratic
+        - etc
+
+* IDENTIFYING RUNTIME COMPLEXITY - TIPS/GROUNDS FOR GUESSING *
+  - Iterating with a simple for loop through a single collection?
+      -> Probably 'O(n)' (linear)
+
+  - Iterating through half a collection?
+      -> Still 'O(n)'. There are no constants in runtime. (linear)
+
+  - Iterating through two *different* collections with separate for loops?
+      -> 'O(n + m)' (basically 2 independent linear runtimes)
+
+  - Two nested for loops iterating over the same collection?
+      -> 'O(n^2)' - two nested for loops is a Big Red Flag for Quadratic Runtime (quadratic)
+
+  - Two nested for loops iterating over different collections? 
+      -> 'O(n * m)' - same principle as 'O(n + m)' but quadratically
+
+  - Sorting?
+      -> 'O(n * log(n))' (quasilinear)
+  
+  - Searching through a sorted array?
+      -> 'O(log(n))' (logarithmic)
+
+
+* SPACE COMPLEXITY *
+  - How much more memory is required by doubling the problem set?
+  - Sometimes identical to Runtime Complexity, with exceptions
