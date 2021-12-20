@@ -4,18 +4,22 @@
 // one to be returned) from the queue *without*
 // removing it.
 
-class Queue {
+export class Queue {
   constructor() {
-    this.data = [];
+    this.data = []
   }
 
   add(record) {
-    this.data.unshift(record);
+    this.data.unshift(record)
   }
 
   remove() {
-    return this.data.pop();
+    return this.data.pop()
+  }
+
+  peek() {
+    return this.data[this.data.length - 1]
   }
 }
 
-module.exports = Queue;
+module.exports = Queue
