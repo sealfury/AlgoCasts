@@ -9,6 +9,12 @@ class Node {
   }
 }
 
+/*
+ * NB - insertAt, removeAt, and getAt
+ * can do the same work as insertFirst, removeFirst, getFirst
+ * by slightly adjusting the arguments the former receive.
+ * Mentioning this is a pretty good look.
+ */
 class LinkedList {
   constructor() {
     this.head = null
@@ -16,8 +22,7 @@ class LinkedList {
 
   insertFirst(data) {
     this.head = new Node(data, this.head)
-    // const node = new Node(data, this.head)
-    // this.head = node
+    // this.insertAt(data, 0) -> simplification refactor
   }
 
   size() {
@@ -51,6 +56,8 @@ class LinkedList {
       }
       node = node.next
     }
+
+    // return this.getAt(this.size() - 1) -> simplification refactor
   }
 
   clear() {
