@@ -37,6 +37,8 @@ class LinkedList {
   }
 
   getLast() {
+    // can also do if check for !this.head
+    // then init this variable
     let node = this.head
 
     if (!node) {
@@ -96,7 +98,56 @@ class LinkedList {
     }
   }
 
-  
+  getAt(index) {
+    let counter = 0
+    let node = this.head
+
+    while (node) {
+      if (counter === index) {
+        return node
+      }
+
+      counter++
+      node = node.next
+    }
+
+    return null
+  }
+
+  removeAt(index) {
+    if (!this.head) {
+      return
+    }
+
+    if (index === 0) {
+      this.head = this.head.next
+      return
+    }
+
+    const previous = this.getAt(index - 1)
+    // handle index out of bounds
+    if (!previous || !previous.next) {
+      return
+    }
+    // 'leapfrog' node in between two nodes
+    previous.next = previous.next.next
+  }
+
+  insertAt(data, index) {
+    if (!this.head) {
+      this.head = new Node(data)
+      return
+    }
+
+    if (index === 0) {
+      this.head = new Node(data, this.head)
+      return
+    }
+
+    const previous = this.getAt(index - 1) || this.getLast()
+    const node = new Node(data, previous.next)
+    previous.next = node
+  }
 }
 
 module.exports = { Node, LinkedList }
