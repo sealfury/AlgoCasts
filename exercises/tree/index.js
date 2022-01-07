@@ -35,10 +35,16 @@ class Tree {
   }
 
   // Traverse by Breadth ('Breadth-first traversal')
-  traverseBreadth() {
-    
+  traverseBreadth(fn) {
+    const arr = [this.root]
+
+    while (arr.length) {
+      const node = arr.shift()
+
+      arr.push(...node.children)
+      fn(node)
+    }
   }
-  
 }
 
 module.exports = { Tree, Node }
