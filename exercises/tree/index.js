@@ -29,6 +29,16 @@ class Node {
   }
 }
 
-class Tree {}
+class Tree {
+  constructor() {
+    this.root = null
+  }
+
+  // Traverse by Breadth ('Breadth-first traversal')
+  traverseBreadth() {
+    
+  }
+  
+}
 
 module.exports = { Tree, Node }
