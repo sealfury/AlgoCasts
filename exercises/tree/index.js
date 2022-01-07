@@ -45,6 +45,19 @@ class Tree {
       fn(node)
     }
   }
+
+  // Traverse by Depth ('Depth-first traversal')
+  traverseDepth(fn) {
+    const arr = [this.root]
+
+    while (arr.length) {
+      const node = arr.shift()
+
+      // reminder - unshift adds element to front of array
+      arr.unshift(...node.children)
+      fn(node)
+    }
+  }
 }
 
 module.exports = { Tree, Node }
