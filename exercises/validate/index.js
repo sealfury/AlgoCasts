@@ -5,6 +5,26 @@
 // every node's right hand child is greater than
 // the parent
 
-function validate(node, min = null, max = null) {}
+const validate = (node, min = null, max = null) => {
+  // compare current nodes w/ min/max values
+  if (max !== null && node.data > max) {
+    return false
+  }
 
-module.exports = validate;
+  if (min !== null && node.data < min) {
+    return false
+  }
+
+  // recurse through structure
+  if (node.left && !validate(node.left, min, node.data)) {
+    return false
+  }
+
+  if (node.right && !validate(node.right, node.data, max)) {
+    return false
+  }
+
+  return true
+}
+
+module.exports = validate
