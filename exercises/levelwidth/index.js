@@ -11,6 +11,24 @@
 // 4       5
 // Answer: [1, 3, 2]
 
-function levelWidth(root) {}
+const levelWidth = root => {
+  // maybe add a const s = 'stop' to prevent typos?
+  const arr = [root, 'stop']
+  const widths = [0]
 
-module.exports = levelWidth;
+  while (arr.length > 1) {
+    const node = arr.shift()
+
+    if (node === 'stop') {
+      widths.push(0)
+      arr.push('stop')
+    } else {
+      arr.push(...node.children)
+      widths[widths.length - 1]++
+    }
+  }
+
+  return widths
+}
+
+module.exports = levelWidth
